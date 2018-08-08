@@ -114,6 +114,7 @@
         file: {},
         metadata: [],
         upgrade_to_1080: false,
+        privacy_view: 'anybody',
         offset: 0,
         chunkSize: 0,
         retryHandler: new RetryHandler(),
@@ -161,7 +162,7 @@
         this.videoData = {
             name: (opts.name > '') ? opts.name : defaults.name,
             description: (opts.description > '') ? opts.description : defaults.description,
-            'privacy.view': opts.private ? 'nobody' : 'anybody'
+            'privacy.view': typeof opts.privacy_view !== 'undefined' ? opts.privacy_view : defaults.privacy_view
         }
 
         if (!(this.url = opts.url)) {
